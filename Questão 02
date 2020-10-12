@@ -1,0 +1,82 @@
+Temperatura = []
+
+def temp():
+    for pos in range(1,3):
+        temperatura = float(input("Digite uma temperatura: "))
+        escala = input('Escala?: ').upper()[0]
+        Temperatura.append(temperatura)
+        Temperatura.append(escala)  
+    return Temperatura
+
+def conversão():
+    if Temperatura[1] == 'C' and Temperatura[3] == 'C':
+        if Temperatura[0] >= Temperatura[2]:
+            maior = Temperatura[0]
+            e = 'C'
+        else:
+            maior = Temperatura[2]
+            e = 'C'
+    elif Temperatura[1] == 'F' and Temperatura[3] == 'F':
+        if Temperatura[0] >= Temperatura[2]:
+            maior = Temperatura[0]
+            e = 'F'
+        else:
+            maior = Temperatura[2]
+            e = 'F'
+
+    else:
+        if Temperatura[1] == 'C' and Temperatura[3] == 'F':
+            if Temperatura[0] > Temperatura[2]:
+                F = (Temperatura[0] *(9/5)) + 32
+                maior = F
+                e = 'F'
+            else:
+                maior = Temperatura[2]
+                e = 'F'
+        elif Temperatura[1] == 'F' and Temperatura[3] == 'C':
+            if Temperatura[2] < Temperatura[0]:
+                C = (Temperatura[0]-32)*(5/9)
+                maior = C
+                e = 'C'
+            else:
+                maior = Temperatura[2]
+                e = 'C'
+    t = []
+    t.append(maior)
+    t.append(e)
+    E = tuple(t)
+    return E
+
+
+def soma():
+    if Temperatura[1] == 'C' and Temperatura[3] == 'C':
+        s = round(Temperatura[0]+Temperatura[2], 4)
+        e = 'C'
+    elif Temperatura[1] == 'F' and Temperatura[3] == 'F':
+        s = round(Temperatura[0]+Temperatura[2], 4)
+        e = 'F'
+    else:
+        if Temperatura[1] == 'C' and Temperatura[3] == 'F':
+            F = (Temperatura[0] *(9/5)) + 32
+            s = round(F+Temperatura[2], 4)
+            e = 'F'
+        elif Temperatura[1] == 'F' and Temperatura[3] == 'C':
+            C = (Temperatura[0]-32)*(5/9)
+            s = round(C+T[2], 4)
+            e = 'C'
+    t = []
+    t.append(s)
+    t.append(e)
+    E = tuple(t)
+
+    return E
+
+def main():
+    temperatura = temp()
+    conversao = conversão()
+    resultado = soma()
+
+    print(resultado)
+
+if __name__=='__main__':
+    main()
